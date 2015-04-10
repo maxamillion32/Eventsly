@@ -3,9 +3,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.graphics.Typeface;
-import android.widget.Button;
-
 
 
 public class Title extends ActionBarActivity {
@@ -14,16 +11,6 @@ public class Title extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
-
-        // font path
-        String fontPath = "fonts/CENTURY.ttf";
-        // text view label
-        Button Txt = (Button) findViewById(R.id.btnExit);
-        // loading font face
-        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
-        // applying font
-        Txt.setTypeface(tf);
-
     }
 
 
@@ -48,5 +35,4 @@ public class Title extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
