@@ -1,53 +1,41 @@
 package com.example.william.eventsly;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 
 public class Title extends Activity
 {
 
-        private Button btnSignUp;
-        private Button btnLogin;
-        private Button btnExit;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
 
-        btnSignUp = (Button) findViewById(R.id.btnSignUp);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnExit = (Button) findViewById(R.id.btnExit);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
+        }
 
-            }
-        });
+    public void onLoginClick(View view)
+    {
+        Intent getLoginScreenIntent = new Intent(this, Login.class);
 
-        btnLogin.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-
-        btnExit.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                finish();
-                System.exit(0);
-            }
-        });
+        startActivity(getLoginScreenIntent);
     }
 
+    public void onSignUpClick(View view)
+    {
+        Intent getSignUpScreenIntent = new Intent(this, SignUp.class);
+
+        startActivity(getSignUpScreenIntent);
+    }
+
+    public void onExitClick(View view)
+    {
+        finish();
+        System.exit(0);
+    }
 }
+
+

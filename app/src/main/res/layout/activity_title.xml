@@ -21,7 +21,8 @@
         android:textStyle="italic"
         android:layout_above="@+id/btnExit"
         android:layout_alignEnd="@+id/btnExit"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onLoginClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -37,7 +38,8 @@
         android:layout_alignEnd="@+id/btnLogin"
         android:layout_alignParentStart="true"
         android:background="@drawable/eventsly_buttons"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:onClick="onSignUpClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -53,7 +55,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:onClick="onExitClick"/>
 
     <ImageView
         android:layout_width="@android:dimen/app_icon_size"

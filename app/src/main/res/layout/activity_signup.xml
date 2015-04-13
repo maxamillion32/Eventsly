@@ -15,7 +15,8 @@
         android:textSize="30sp"
         android:clickable="true"
         android:background="@drawable/eventsly_buttons"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:onClick="onCancelSignUpClick"/>
 
     <Button
         android:layout_width="wrap_content"
