@@ -55,13 +55,16 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/editTextEmail"
-        android:layout_below="@+id/labelEmail"
-        android:layout_centerHorizontal="true"
         android:editable="true"
         android:textColor="#fffdfdfe"
         android:textIsSelectable="true"
         android:autoText="true"
-        android:background="@drawable/eventsly_buttons" />
+        android:text="@string/editTextEmail"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:textStyle="italic" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -69,35 +72,16 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editTextPassword"
-        android:layout_above="@+id/btnSignIn"
-        android:layout_alignStart="@+id/editTextEmail"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="105dp"
         android:editable="true"
         android:textColor="#fffdfdfe"
         android:textIsSelectable="true"
         android:password="true"
-        android:background="@drawable/eventsly_buttons" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/labelEmail"
-        android:id="@+id/labelEmail"
-        android:textSize="30sp"
-        android:layout_marginTop="61dp"
-        android:layout_alignParentTop="true"
+        android:text="@string/editTextPassword"
+        android:layout_above="@+id/btnSignIn"
         android:layout_alignStart="@+id/editTextEmail"
-        android:textColor="#fffdfdfe" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/labelPassword"
-        android:id="@+id/labelPassword"
-        android:textColor="#fffdfdfe"
-        android:textSize="30sp"
-        android:layout_above="@+id/editTextPassword"
-        android:layout_alignStart="@+id/editTextPassword" />
+        android:textSize="25sp"
+        android:textStyle="italic" />
 
 
 </RelativeLayout>

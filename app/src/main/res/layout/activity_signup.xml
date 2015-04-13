@@ -1,5 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background">
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="@string/btnCancelSignUp"
+        android:id="@+id/btnCancelSignUp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#fffdfdfe"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:background="@drawable/eventsly_buttons"
+        android:textStyle="italic" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="@string/btnCreateAccount"
+        android:id="@+id/btnCreateAccount"
+        android:textColor="#fffdfdfe"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:background="@drawable/eventsly_buttons"
+        android:textStyle="italic"
+        android:layout_above="@+id/btnCancelSignUp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/editTextFirstName"
+        android:ems="10"
+        android:id="@+id/editTextFirstName"
+        android:layout_marginTop="38dp"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:singleLine="false"
+        android:editable="true"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/editTextLastName"
+        android:ems="10"
+        android:id="@+id/editTextLastName"
+        android:layout_below="@+id/editTextFirstName"
+        android:layout_alignStart="@+id/editTextFirstName"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:paddingTop="20dp"
+        android:editable="true"
+        android:clickable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editTextEmailSignUp"
+        android:layout_below="@+id/editTextLastName"
+        android:layout_alignStart="@+id/editTextLastName"
+        android:clickable="true"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:paddingTop="20dp"
+        android:editable="true"
+        android:text="@string/editTextEmailSignUp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editTextPasswordSignUp"
+        android:layout_below="@+id/editTextEmailSignUp"
+        android:layout_alignStart="@+id/editTextEmailSignUp"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:text="@string/editTextPasswordSignUp"
+        android:paddingTop="20dp"
+        android:editable="true"
+        android:clickable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editTextConfirmPasswordSignUp"
+        android:layout_below="@+id/editTextPasswordSignUp"
+        android:layout_alignStart="@+id/editTextPasswordSignUp"
+        android:layout_alignEnd="@+id/editTextPasswordSignUp"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:text="@string/editTextConfirmPasswordSignUp"
+        android:paddingTop="20sp"
+        android:editable="true"
+        android:clickable="true" />
+
+</RelativeLayout>
