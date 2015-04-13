@@ -13,11 +13,14 @@ public class SignUp extends Activity {
         setContentView(R.layout.activity_signup);
     }
 
-    public void onCancelSignUpClick(View view)
-    {
+    public void onCancelSignUpClick(View view) throws InterruptedException {
         Intent getTitleScreenIntent = new Intent(this, Title.class);
 
         startActivity(getTitleScreenIntent);
+
+        wait(2000);
+        finish();
+        System.exit(0);
 
     }
 }

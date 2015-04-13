@@ -36,7 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/editTextFirstName"
+        android:hint="@string/hintFirstName"
+        android:textColorHint="#78fdfdfe"
         android:ems="10"
         android:id="@+id/editTextFirstName"
         android:layout_marginTop="38dp"
@@ -53,7 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/editTextLastName"
+        android:hint="@string/hintLastName"
+        android:textColorHint="#78fdfdfe"
         android:ems="10"
         android:id="@+id/editTextLastName"
         android:layout_below="@+id/editTextFirstName"
@@ -79,7 +81,8 @@
         android:textColor="#fffdfdfe"
         android:paddingTop="20dp"
         android:editable="true"
-        android:text="@string/editTextEmailSignUp" />
+        android:hint="@string/hintEmail"
+        android:textColorHint="#78fdfdfe"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -92,7 +95,8 @@
         android:textStyle="italic"
         android:textSize="25sp"
         android:textColor="#fffdfdfe"
-        android:text="@string/editTextPasswordSignUp"
+        android:hint="@string/hintPassword"
+        android:textColorHint="#78fdfdfe"
         android:paddingTop="20dp"
         android:editable="true"
         android:clickable="true" />
@@ -109,7 +113,8 @@
         android:textStyle="italic"
         android:textSize="25sp"
         android:textColor="#fffdfdfe"
-        android:text="@string/editTextConfirmPasswordSignUp"
+        android:hint="@string/hintConfirmPassword"
+        android:textColorHint="#78fdfdfe"
         android:paddingTop="20sp"
         android:editable="true"
         android:clickable="true" />

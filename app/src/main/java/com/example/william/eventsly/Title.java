@@ -22,6 +22,8 @@ public class Title extends Activity
         Intent getLoginScreenIntent = new Intent(this, Login.class);
 
         startActivity(getLoginScreenIntent);
+        finish();
+        System.exit(0);
     }
 
     public void onSignUpClick(View view)
@@ -29,6 +31,9 @@ public class Title extends Activity
         Intent getSignUpScreenIntent = new Intent(this, SignUp.class);
 
         startActivity(getSignUpScreenIntent);
+
+        finish();
+        System.exit(0);
     }
 
     public void onExitClick(View view)

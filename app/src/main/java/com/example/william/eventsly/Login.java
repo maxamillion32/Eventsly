@@ -18,6 +18,9 @@ public class Login extends Activity {
         Intent getSignUpScreenIntent = new Intent(this, SignUp.class);
 
         startActivity(getSignUpScreenIntent);
+
+        finish();
+        System.exit(0);
     }
 
     public void onCancelClick(View view)
@@ -25,5 +28,8 @@ public class Login extends Activity {
         Intent getTitleScreenIntent = new Intent(this, Title.class);
 
         startActivity(getTitleScreenIntent);
+
+        finish();
+        System.exit(0);
     }
 }

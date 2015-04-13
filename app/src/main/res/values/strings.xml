@@ -10,12 +10,10 @@
     <string name="btnSignIn">Sign In</string>
     <string name="btnCancelSignUp">Cancel</string>
     <string name="btnCreateAccount">Create Account</string>
-    <string name="editTextPassword">Password</string>
-    <string name="editTextEmail">Email Address</string>
-    <string name="editTextFirstName">First Name</string>
-    <string name="editTextLastName">Last Name</string>
-    <string name="editTextEmailSignUp">Email Address</string>
-    <string name="editTextPasswordSignUp">Password</string>
-    <string name="editTextConfirmPasswordSignUp">Password</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="hintLastName">Last Name</string>
+    <string name="hintFirstName">First Name</string>
+    <string name="hintConfirmPassword">Confirm Password</string>
 
 </resources>
