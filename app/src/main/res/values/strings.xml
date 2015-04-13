@@ -5,4 +5,10 @@
     <string name="btnSignUp">Sign Up</string>
     <string name="btnLogin">Login</string>
     <string name="imageLogo">Logo</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnNewUsers">New Users</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="labelPassword">Password:</string>
+    <string name="labelEmail">Email:</string>
+
 </resources>
