@@ -1,11 +1,11 @@
 package com.example.william.eventsly;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class Title extends ActionBarActivity {
+public class Title extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
