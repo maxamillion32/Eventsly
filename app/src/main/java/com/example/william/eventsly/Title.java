@@ -5,35 +5,47 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class Title extends Activity {
+public class Title extends Activity
+{
 
+        private Button btnSignUp;
+        private Button btnLogin;
+        private Button btnExit;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
 
-        Button btnSignUp = (Button) findViewById(R.id.btnSignUp);
-        Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        Button btnExit = (Button) findViewById(R.id.btnExit);
+        btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnExit = (Button) findViewById(R.id.btnExit);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnSignUp.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
 
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
 
             }
         });
 
-        btnExit.setOnClickListener(new View.OnClickListener() {
+        btnExit.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                finish();
+                System.exit(0);
             }
         });
     }
