@@ -30,7 +30,8 @@
         android:textStyle="italic"
         android:layout_above="@+id/btnCancelSignUp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onCreateAccountClick"/>
 
     <EditText
         android:layout_width="wrap_content"
