@@ -15,7 +15,7 @@ public class Login extends Activity
 {
     SQLiteDatabase AccountsDB = null;
 
-    Button SignIn, NewUsers, Cancel;
+    Button SignIn;
 
     EditText Email, Password;
 
@@ -24,6 +24,11 @@ public class Login extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        SignIn = (Button) findViewById(R.id.btnSignIn);
+        Email = (EditText) findViewById(R.id.editTextEmail);
+        Password = (EditText) findViewById(R.id.editTextPassword);
+
         try
         {
             AccountsDB = this.openOrCreateDatabase("Accounts", MODE_PRIVATE, null);
@@ -52,7 +57,6 @@ public class Login extends Activity
         startActivity(getSignUpScreenIntent);
 
         finish();
-        System.exit(0);
     }
 
     public void onCancelClick(View view)
@@ -64,7 +68,6 @@ public class Login extends Activity
         AccountsDB.close();
 
         finish();
-        System.exit(0);
     }
 
     public void onSignInClick(View view)

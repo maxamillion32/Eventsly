@@ -10,8 +10,6 @@ import android.widget.Button;
 public class Title extends Activity
 {
 
-    Button Login, SignUp, Exit;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -28,7 +26,6 @@ public class Title extends Activity
         startActivity(getLoginScreenIntent);
 
         finish();
-        System.exit(0);
     }
 
     public void onSignUpClick(View view)
@@ -38,7 +35,6 @@ public class Title extends Activity
         startActivity(getSignUpScreenIntent);
 
         finish();
-        System.exit(0);
     }
 
     public void onExitClick(View view)

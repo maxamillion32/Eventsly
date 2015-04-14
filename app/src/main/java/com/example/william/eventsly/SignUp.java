@@ -69,8 +69,6 @@ public class SignUp extends Activity
         AccountsDB.close();
 
         finish();
-        System.exit(0);
-
     }
 
     public void onCreateAccountClick(View view)
@@ -84,7 +82,7 @@ public class SignUp extends Activity
 
         if(password.equals(confirmpassword))
         {
-            if(isValidEmail((CharSequence) Email))
+            if(isValidEmail(email))
             {
                 AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
                         firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
@@ -103,7 +101,8 @@ public class SignUp extends Activity
 
     }
 
-    public final static boolean isValidEmail(CharSequence target) {
+    public final static boolean isValidEmail(CharSequence target)
+    {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }
