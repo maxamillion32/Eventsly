@@ -50,7 +50,8 @@
         android:textColor="#fffdfdfe"
         android:textSize="30sp"
         android:singleLine="false"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:onClick="onSignInClick"/>
 
     <EditText
         android:layout_width="wrap_content"

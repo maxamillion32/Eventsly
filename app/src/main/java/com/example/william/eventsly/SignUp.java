@@ -3,6 +3,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class SignUp extends Activity
 
     Button CreateAccount;
 
-    EditText FirstName, LastName, Email, Password;
+    EditText FirstName, LastName, Email, Password, ConfirmPassword;
 
 
 
@@ -33,6 +34,7 @@ public class SignUp extends Activity
         LastName = (EditText) findViewById(R.id.editTextLastName);
         Email = (EditText) findViewById(R.id.editTextEmailSignUp);
         Password = (EditText) findViewById(R.id.editTextPasswordSignUp);
+        ConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPasswordSignUp);
 
         try
         {
@@ -78,11 +80,30 @@ public class SignUp extends Activity
         String lastname = LastName.getText().toString();
         String email = Email.getText().toString();
         String password = Password.getText().toString();
+        String confirmpassword = ConfirmPassword.getText().toString();
 
-        AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
-        firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
+        if(password.equals(confirmpassword))
+        {
+            if(isValidEmail((CharSequence) Email))
+            {
+                AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
+                        firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
 
-        Toast.makeText(this,"Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this,"Email is not valid.", Toast.LENGTH_LONG).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(this,"Passwords do not match.", Toast.LENGTH_LONG).show();
+        }
 
+    }
+
+    public final static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }

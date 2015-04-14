@@ -66,4 +66,10 @@ public class Login extends Activity
         finish();
         System.exit(0);
     }
+
+    public void onSignInClick(View view)
+    {
+
+
+    }
 }
