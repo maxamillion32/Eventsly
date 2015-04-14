@@ -16,15 +16,23 @@ public class SignUp extends Activity
 {
     SQLiteDatabase AccountsDB = null;
 
-    Button CreateAccount, Cancel;
+    Button CreateAccount;
 
-    EditText FirstName, LastName, Email, Password, ConfirmPassword;
+    EditText FirstName, LastName, Email, Password;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        CreateAccount = (Button) findViewById(R.id.btnCreateAccount);
+        FirstName = (EditText) findViewById(R.id.editTextFirstName);
+        LastName = (EditText) findViewById(R.id.editTextLastName);
+        Email = (EditText) findViewById(R.id.editTextEmailSignUp);
+        Password = (EditText) findViewById(R.id.editTextPasswordSignUp);
 
         try
         {
@@ -35,9 +43,12 @@ public class SignUp extends Activity
 
             File database = getApplicationContext().getDatabasePath("Accounts.db");
 
-            if (!database.exists()) {
+            if (!database.exists())
+            {
                 Toast.makeText(this, "Database Created or Exists", Toast.LENGTH_SHORT).show();
-            } else {
+            }
+            else
+            {
                 Toast.makeText(this, "Database doesn't exist", Toast.LENGTH_SHORT).show();
             }
         }
@@ -53,6 +64,8 @@ public class SignUp extends Activity
 
         startActivity(getTitleScreenIntent);
 
+        AccountsDB.close();
+
         finish();
         System.exit(0);
 
@@ -60,6 +73,16 @@ public class SignUp extends Activity
 
     public void onCreateAccountClick(View view)
     {
+
+        String firstname = FirstName.getText().toString();
+        String lastname = LastName.getText().toString();
+        String email = Email.getText().toString();
+        String password = Password.getText().toString();
+
+        AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
+        firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
+
+        Toast.makeText(this,"Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
 
     }
 }
