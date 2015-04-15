@@ -1,9 +1,10 @@
 package com.example.william.eventsly;
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 import java.io.File;
 
 
-public class Login extends Activity
+public class Login extends ActionBarActivity
 {
     SQLiteDatabase AccountsDB = null;
 
@@ -26,6 +27,9 @@ public class Login extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.hide();
 
         SignIn = (Button) findViewById(R.id.btnSignIn);
         Email = (EditText) findViewById(R.id.editTextEmail);
