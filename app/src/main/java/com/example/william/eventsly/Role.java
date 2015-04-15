@@ -17,11 +17,19 @@ public class Role extends Activity
 
     public void onPlannerClick(View view)
     {
+        Intent getPlannerScreenIntent = new Intent(this, PlannerEvents.class);
 
+        startActivity(getPlannerScreenIntent);
+
+        finish();
     }
 
     public void onAttendeeClick(View view)
     {
+        Intent getAttendeeScreenIntent = new Intent(this, AttendeeEvents.class);
 
+        startActivity(getAttendeeScreenIntent);
+
+        finish();
     }
 }
