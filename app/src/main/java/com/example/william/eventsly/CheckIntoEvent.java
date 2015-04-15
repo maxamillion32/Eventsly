@@ -3,7 +3,7 @@ package com.example.william.eventsly;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class SignIntoEvent extends Activity
+public class CheckIntoEvent extends Activity
 {
 
     @Override

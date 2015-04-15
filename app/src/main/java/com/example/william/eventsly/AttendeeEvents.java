@@ -41,7 +41,7 @@ public class AttendeeEvents extends ActionBarActivity
                 break;
 
             case R.id.action_SignIntoAnEvent:
-                Intent getSignIntoEventScreenIntent = new Intent(this, SignIntoEvent.class);
+                Intent getSignIntoEventScreenIntent = new Intent(this, CheckIntoEvent.class);
                 startActivity(getSignIntoEventScreenIntent);
                 finish();
                 break;
