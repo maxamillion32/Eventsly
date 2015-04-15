@@ -1,6 +1,6 @@
 <resources>
+
     <string name="app_name">Eventsly</string>
-    <string name="action_settings">Settings</string>
     <string name="btnExit">Exit</string>
     <string name="btnSignUp">Sign Up</string>
     <string name="btnLogin">Login</string>
@@ -20,5 +20,15 @@
     <string name="btnAttendee">Attendee</string>
     <string name="imagePlanner">imagePlannerIcon</string>
     <string name="imageAttendee">imageAttendeeIcon</string>
+    <string name="menuCreateEvent">Create Event</string>
+    <string name="menuViewEvent">View Event</string>
+    <string name="menuEditEvent">Edit Event</string>
+    <string name="menuSwitchToAttendee">Switch to Attendee</string>
+    <string name="menuSearchEvents">Search Events</string>
+    <string name="menuUnregisterFromEvent">Unregister from an Event</string>
+    <string name="menuSignIntoEvent">Sign into an Event</string>
+    <string name="menuProfileDetails">Profile Details</string>
+    <string name="menuPlanner">Planner</string>
+    <string name="menuAttendee">Attendee</string>
 
 </resources>
