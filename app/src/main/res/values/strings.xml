@@ -15,5 +15,10 @@
     <string name="hintLastName">Last Name</string>
     <string name="hintFirstName">First Name</string>
     <string name="hintConfirmPassword">Confirm Password</string>
+    <string name="labelRoleTypeText">Choose your role:</string>
+    <string name="btnPlanner">Planner</string>
+    <string name="btnAttendee">Attendee</string>
+    <string name="imagePlanner">imagePlannerIcon</string>
+    <string name="imageAttendee">imageAttendeeIcon</string>
 
 </resources>

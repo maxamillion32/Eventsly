@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/labelRoleTypeText"
+        android:id="@+id/labelRoleTypeText"
+        android:textColor="#fffdfdfe"
+        android:textSize="50sp"
+        android:textStyle="italic"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/imagePlannerIcon" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnPlanner"
+        android:id="@+id/btnPlanner"
+        android:background="@drawable/eventsly_buttons"
+        android:textColor="#fffdfdfe"
+        android:textStyle="italic"
+        android:textSize="40sp"
+        android:width="250dp"
+        android:height="75dp"
+        android:layout_alignTop="@+id/imagePlannerIcon"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnAttendee"
+        android:id="@+id/btnAttendee"
+        android:background="@drawable/eventsly_buttons"
+        android:textColor="#fffdfdfe"
+        android:textStyle="italic"
+        android:textSize="40sp"
+        android:height="75dp"
+        android:width="250dp"
+        android:layout_below="@+id/imagePlannerIcon"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="80dp" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imagePlannerIcon"
+        android:contentDescription="@string/imagePlanner"
+        android:focusable="true"
+        android:background="@drawable/plannerIcon"
+        android:cropToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/labelRoleTypeText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="47dp" />
+
+</RelativeLayout>
