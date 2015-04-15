@@ -47,10 +47,9 @@
         android:singleLine="false"
         android:editable="true"
         android:clickable="true"
-        android:paddingTop="20dp"
+        android:layout_marginTop="63dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -65,7 +64,6 @@
         android:textStyle="italic"
         android:textSize="25sp"
         android:textColor="#fffdfdfe"
-        android:paddingTop="20dp"
         android:editable="true"
         android:clickable="true" />
 
@@ -81,7 +79,6 @@
         android:textStyle="italic"
         android:textSize="25sp"
         android:textColor="#fffdfdfe"
-        android:paddingTop="20dp"
         android:editable="true"
         android:hint="@string/hintEmail"
         android:textColorHint="#78fdfdfe"/>
@@ -99,7 +96,6 @@
         android:textColor="#fffdfdfe"
         android:hint="@string/hintPassword"
         android:textColorHint="#78fdfdfe"
-        android:paddingTop="20dp"
         android:editable="true"
         android:clickable="true"
         android:layout_alignEnd="@+id/editTextEmailSignUp" />
@@ -118,7 +114,6 @@
         android:textColor="#fffdfdfe"
         android:hint="@string/hintConfirmPassword"
         android:textColorHint="#78fdfdfe"
-        android:paddingTop="20sp"
         android:editable="true"
         android:clickable="true" />
 
