@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">Eventsly</string>
-    <string name="Title">titleScreen</string>
-    <string name="Login">loginScreen</string>
-    <string name="SignUp">signupScreen</string>
-    <string name="Role">roleScreen</string>
-    <string name="Planner">plannerScreen</string>
-    <string name="Attendee">attendeeScreen</string>
     <string name="action_settings">Settings</string>
     <string name="btnExit">Exit</string>
     <string name="btnSignUp">Sign Up</string>
