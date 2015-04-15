@@ -1,7 +1,9 @@
 package com.example.william.eventsly;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+
 
 public class AttendeeEvents extends ActionBarActivity
 {
@@ -11,5 +13,6 @@ public class AttendeeEvents extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendee_events);
+
     }
 }

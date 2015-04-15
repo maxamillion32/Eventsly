@@ -11,5 +11,6 @@ public class PlannerEvents extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planner_events);
+
     }
 }
