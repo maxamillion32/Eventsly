@@ -65,6 +65,8 @@ public class Login extends Activity
 
         startActivity(getSignUpScreenIntent);
 
+        AccountsDB.close();
+
         finish();
     }
 
