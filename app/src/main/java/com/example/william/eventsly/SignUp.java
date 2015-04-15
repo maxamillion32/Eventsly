@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.io.File;
 
 
@@ -94,6 +93,8 @@ public class SignUp extends Activity
 
                     Toast.makeText(this, "Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
 
+                    AccountsDB.close();
+
                     Intent getLoginScreenIntent = new Intent(this, Login.class);
 
                     startActivity(getLoginScreenIntent);
@@ -123,7 +124,7 @@ public class SignUp extends Activity
 
     }
 
-    public final static boolean isValidEmail(CharSequence target)
+    public static boolean isValidEmail(CharSequence target)
     {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }

@@ -1,8 +1,10 @@
 package com.example.william.eventsly;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -76,6 +78,39 @@ public class Login extends Activity
     public void onSignInClick(View view)
     {
 
+        String email = Email.getText().toString();
+        String password = Password.getText().toString();
 
+        if(isValidEmail(email))
+        {
+            if (GetAccountChecked(email, password) > 0)
+            {
+                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(this, "Email is not valid.", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+    }
+
+    public int GetAccountChecked(String email, String password)
+    {
+        Cursor c = AccountsDB.rawQuery("SELECT email, password FROM accounts WHERE email =? AND password =?", new String[]{email, password});
+        c.moveToFirst();
+        return c.getCount();
+
+    }
+
+    public static boolean isValidEmail(CharSequence target)
+    {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }

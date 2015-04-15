@@ -61,15 +61,16 @@
         android:id="@+id/editTextEmail"
         android:editable="true"
         android:textColor="#fffdfdfe"
-        android:textIsSelectable="true"
-        android:autoText="true"
+        android:autoText="false"
         android:hint="@string/hintEmail"
         android:textColorHint="#78fdfdfe"
         android:textSize="25sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:clickable="true" />
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -80,14 +81,14 @@
         android:layout_marginBottom="105dp"
         android:editable="true"
         android:textColor="#fffdfdfe"
-        android:textIsSelectable="true"
         android:password="true"
         android:layout_above="@+id/btnSignIn"
         android:layout_alignStart="@+id/editTextEmail"
         android:textSize="25sp"
         android:textStyle="italic"
         android:hint="@string/hintPassword"
-        android:textColorHint="#78fdfdfe"/>
+        android:textColorHint="#78fdfdfe"
+        android:clickable="true" />
 
 
 </RelativeLayout>
