@@ -86,6 +86,8 @@ public class Login extends Activity
             if (GetAccountChecked(email, password) > 0)
             {
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+                AccountsDB.close();
+
             }
             else
             {
