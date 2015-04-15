@@ -1,5 +1,6 @@
 package com.example.william.eventsly;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -25,7 +26,36 @@ public class AttendeeEvents extends ActionBarActivity
 
     public boolean onOptionsItemSelected(MenuItem Item)
     {
-    return true;
+        switch(Item.getItemId())
+        {
+            case R.id.action_SearchEvents:
+                Intent getSearchEventsScreenIntent = new Intent(this, SearchEvents.class);
+                startActivity(getSearchEventsScreenIntent);
+                finish();
+                break;
+
+            case R.id.action_UnregisterFromAnEvent:
+                Intent getUnregisterFromEventScreenIntent = new Intent(this, UnregisterFromEvent.class);
+                startActivity(getUnregisterFromEventScreenIntent);
+                finish();
+                break;
+
+            case R.id.action_SignIntoAnEvent:
+                Intent getSignIntoEventScreenIntent = new Intent(this, SignIntoEvent.class);
+                startActivity(getSignIntoEventScreenIntent);
+                finish();
+                break;
+
+            case R.id.action_ProfileDetails:
+                Intent getProfileDetailsScreenIntent = new Intent(this, AttendeeEvents.class);
+                startActivity(getProfileDetailsScreenIntent);
+                finish();
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 
 }
