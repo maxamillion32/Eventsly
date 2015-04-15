@@ -1,10 +1,11 @@
 package com.example.william.eventsly;
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
-public class Role extends Activity
+public class Role extends ActionBarActivity
 {
 
     @Override
@@ -12,6 +13,9 @@ public class Role extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.hide();
 
     }
 
