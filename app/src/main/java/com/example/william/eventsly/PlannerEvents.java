@@ -50,6 +50,13 @@ public class PlannerEvents extends ActionBarActivity
                 startActivity(getAttendeeEventsScreenIntent);
                 finish();
                 break;
+
+            case R.id.action_CheckInAttendee:
+                Intent getCheckInAttendeeScreen = new Intent(this, CheckInAttendee.class);
+                startActivity(getCheckInAttendeeScreen);
+                finish();
+                break;
+
             default:
                 break;
         }

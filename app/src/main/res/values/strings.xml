@@ -30,5 +30,6 @@
     <string name="menuProfileDetails">Profile Details</string>
     <string name="menuPlanner">Planner</string>
     <string name="menuAttendee">Attendee</string>
+    <string name="menuCheckInAttendee">Check In Attendee</string>
 
 </resources>
