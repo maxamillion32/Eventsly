@@ -86,7 +86,14 @@ public class Login extends Activity
             if (GetAccountChecked(email, password) > 0)
             {
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                Intent getRoleScreenIntent = new Intent(this, Role.class);
+
+                startActivity(getRoleScreenIntent);
+
                 AccountsDB.close();
+
+                finish();
 
             }
             else
