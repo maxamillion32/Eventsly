@@ -1,6 +1,7 @@
 package com.example.william.eventsly;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -20,6 +21,8 @@ public class SignUp extends Activity
     Button CreateAccount;
 
     EditText FirstName, LastName, Email, Password, ConfirmPassword;
+
+
 
 
 
@@ -84,20 +87,39 @@ public class SignUp extends Activity
         {
             if(isValidEmail(email))
             {
-                AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
-                        firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
+                if(GetEmailChecked(email) == 0)
+                {
+                    AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
+                            firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
 
-                Toast.makeText(this, "Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
+
+                    Intent getLoginScreenIntent = new Intent(this, Login.class);
+
+                    startActivity(getLoginScreenIntent);
+                }
+                else
+                {
+                    Toast.makeText(this, "An account with this email already exists.", Toast.LENGTH_SHORT).show();
+                }
             }
             else
             {
-                Toast.makeText(this,"Email is not valid.", Toast.LENGTH_LONG).show();
+               Toast.makeText(this, "Email is not valid.", Toast.LENGTH_SHORT).show();
             }
+
         }
         else
         {
-            Toast.makeText(this,"Passwords do not match.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Passwords do not match.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public int GetEmailChecked(String email)
+    {
+        Cursor c = AccountsDB.rawQuery("SELECT email FROM accounts WHERE email =?", new String[]{email});
+        c.moveToFirst();
+        return c.getCount();
 
     }
 

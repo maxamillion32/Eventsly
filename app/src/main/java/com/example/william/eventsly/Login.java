@@ -38,9 +38,12 @@ public class Login extends Activity
 
             File database = getApplicationContext().getDatabasePath("Accounts.db");
 
-            if (!database.exists()) {
+            if (!database.exists())
+            {
                 Toast.makeText(this, "Database Created or Exists", Toast.LENGTH_SHORT).show();
-            } else {
+            }
+            else
+            {
                 Toast.makeText(this, "Database doesn't exist", Toast.LENGTH_SHORT).show();
             }
         }
