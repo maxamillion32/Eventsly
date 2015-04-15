@@ -9,7 +9,8 @@
         <activity
             android:name=".Title"
             android:label="@string/Title"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,17 +19,20 @@
         
         <activity android:name=".Login"
             android:label="@string/Login"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
 
         <activity android:name=".SignUp"
             android:label="@string/SignUp"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
 
         <activity android:name=".Role"
             android:label="@string/Role"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
 
         <activity android:name=".PlannerEvents"
