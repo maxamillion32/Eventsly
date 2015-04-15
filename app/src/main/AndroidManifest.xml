@@ -29,12 +29,14 @@
 
         <activity android:name=".PlannerEvents"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:icon="@drawable/applogo">
         </activity>
 
         <activity android:name=".AttendeeEvents"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:icon="@drawable/applogo">
         </activity>
 
     </application>
