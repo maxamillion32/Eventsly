@@ -1,6 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Spinner
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerChooseEvent"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:spinnerMode="dialog"
+            android:visibility="visible"
+            android:touchscreenBlocksFocus="false"
+            android:dropDownSelector="#fffdfdfe"
+            android:contentDescription=""
+            android:layoutMode="clipBounds" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:ems="10"
+            android:id="@+id/editTextViewDateAndTime"
+            android:layout_marginTop="39dp"
+            android:editable="true"
+            android:clickable="true"
+            android:hint="@string/hintDateAndTime"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:textColor="#fffdfdfe"
+            android:textColorHint="#78fdfdfe"
+            android:visibility="visible" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editTextViewAddress"
+            android:clickable="true"
+            android:editable="true"
+            android:hint="@string/hintAddress"
+            android:gravity="top"
+            android:textColor="#fffdfdfe"
+            android:textColorHint="#78fdfdfe"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerEventType"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:spinnerMode="dialog"
+            android:visibility="visible"
+            android:touchscreenBlocksFocus="false"
+            android:dropDownSelector="#fffdfdfe"
+            android:textColorHint="#78fdfdfe"
+            android:contentDescription="@string/spinnerEventType"
+            android:layoutMode="clipBounds"
+            android:layout_gravity="bottom" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal" />
 
 
-</RelativeLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:inputType="textMultiLine"
+            android:id="@+id/editTextViewDescription"
+            android:textStyle="italic"
+            android:textColor="#fffdfdfe"
+            android:hint="@string/hintDescription"
+            android:editable="true"
+            android:clickable="true"
+            android:textSize="20sp"
+            android:textIsSelectable="false"
+            android:layout_weight="1.39"
+            android:paddingBottom="50dp"
+            android:visibility="visible"
+            android:gravity="bottom"
+            android:layout_gravity="bottom" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/labelRegisteredAttendees"
+            android:id="@+id/labelRegisteredAttendees"
+            android:textSize="30sp" />
+
+        <ListView
+            android:layout_width="298dp"
+            android:layout_height="200dp"
+            android:id="@+id/listRegisteredAttendees"
+            android:nestedScrollingEnabled="true"
+            android:smoothScrollbar="false" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnEditEvent"
+            android:id="@+id/btnEditEvent"
+            android:background="@drawable/eventsly_buttons"
+            android:clickable="true"
+            android:onClick="onEditEventClick"
+            android:textColor="#fffdfdfe"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

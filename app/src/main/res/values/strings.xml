@@ -33,6 +33,8 @@
     <string name="hintDescription">Type in Event Description here.</string>
     <string name="btnCreateEvent">Create Event</string>
     <string name="btnCancelCreateEvent">Cancel</string>
+    <string name="btnEditEvent">Edit</string>
+    <string name="labelRegisteredAttendees">Registered Attendees:</string>
 
     <string-array name="EventTypes_array">
         <item>Select Event Type</item>
