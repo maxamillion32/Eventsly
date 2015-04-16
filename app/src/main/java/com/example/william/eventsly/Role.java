@@ -1,5 +1,5 @@
 package com.example.william.eventsly;
-import android.app.ActionBar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,23 +14,20 @@ public class Role extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
 
-        ActionBar actionBar = getActionBar();
-        actionBar.hide();
-
     }
 
-    public void onPlannerClick(View view)
+    public void onHostClick(View view)
     {
-        Intent getPlannerScreenIntent = new Intent(this, PlannerEvents.class);
+        Intent getHostScreenIntent = new Intent(this, Host.class);
 
-        startActivity(getPlannerScreenIntent);
+        startActivity(getHostScreenIntent);
 
         finish();
     }
 
     public void onAttendeeClick(View view)
     {
-        Intent getAttendeeScreenIntent = new Intent(this, AttendeeEvents.class);
+        Intent getAttendeeScreenIntent = new Intent(this, Attendee.class);
 
         startActivity(getAttendeeScreenIntent);
 

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextEventName"
+            android:layout_marginTop="45dp"
+            android:hint="@string/hintEventName"
+            android:editable="true"
+            android:clickable="true"
+            android:textColor="#fffdfdfe"
+            android:textColorHint="#78fdfdfe"
+            android:textStyle="italic"
+            android:textSize="25sp"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:ems="10"
+            android:id="@+id/editTextDateAndTime"
+            android:layout_marginTop="39dp"
+            android:editable="true"
+            android:clickable="true"
+            android:hint="@string/hintDateAndTime"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:textColor="#fffdfdfe"
+            android:textColorHint="#78fdfdfe"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editTextAddress"
+            android:clickable="true"
+            android:editable="true"
+            android:hint="@string/hintAddress"
+            android:gravity="top"
+            android:textColor="#fffdfdfe"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerEventType"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:touchscreenBlocksFocus="false"
+            android:dropDownSelector="#fffdfdfe"
+            android:contentDescription="@string/spinnerEventType"
+            android:layoutMode="clipBounds"
+            android:layout_gravity="bottom" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:inputType="textMultiLine"
+            android:id="@+id/editTextDecription"
+            android:textStyle="italic"
+            android:textColor="#fffdfdfe"
+            android:hint="@string/hintDescription"
+            android:editable="true"
+            android:clickable="true"
+            android:textSize="20sp"
+            android:textIsSelectable="false"
+            android:layout_weight="1.39"
+            android:paddingBottom="50dp"
+            android:visibility="visible"
+            android:gravity="bottom"
+            android:layout_gravity="bottom" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnCreateEvent"
+            android:id="@+id/btnCreateEvent"
+            android:background="@drawable/eventsly_buttons"
+            android:clickable="true"
+            android:onClick="onCreateEventClick"
+            android:textColor="#fffdfdfe"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnCancelCreateEvent"
+            android:id="@+id/btnCancelCreateEvent"
+            android:background="@drawable/eventsly_buttons"
+            android:clickable="true"
+            android:onClick="onCancelCreateEventClick"
+            android:textColor="#fffdfdfe"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

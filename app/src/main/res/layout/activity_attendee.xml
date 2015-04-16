@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Attendee">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/labelAttendeeOptions"
+        android:id="@+id/labelAttendeeOptions"
+        android:textColor="#fffdfdfe"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:textStyle="italic" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="@string/btnAttendeeCheckIn"
+        android:id="@+id/btnAttendeeCheckIn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/eventsly_buttons"
+        android:textColor="#fffdfdfe"
+        android:textStyle="italic"
+        android:textSize="35sp"
+        android:layout_alignEnd="@+id/btnAttendeeCheckOut"
+        android:layout_alignStart="@+id/btnAttendeeCheckOut"
+        android:clickable="true"
+        android:onClick="onCheckInClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="@string/btnAttendeeCheckOut"
+        android:id="@+id/btnAttendeeCheckOut"
+        android:layout_above="@+id/btnAttendeeCheckIn"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/eventsly_buttons"
+        android:textColor="#fffdfdfe"
+        android:textStyle="italic"
+        android:textSize="35sp"
+        android:layout_alignEnd="@+id/btnAttendeeBadge"
+        android:layout_alignStart="@+id/btnAttendeeBadge"
+        android:clickable="true"
+        android:onClick="onCheckOutClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="@string/btnAttendeeBadge"
+        android:id="@+id/btnAttendeeBadge"
+        android:layout_above="@+id/btnAttendeeCheckOut"
+        android:layout_marginBottom="59dp"
+        android:background="@drawable/eventsly_buttons"
+        android:textColor="#fffdfdfe"
+        android:textStyle="italic"
+        android:textSize="35sp"
+        android:layout_alignEnd="@+id/labelAttendeeOptions"
+        android:layout_alignStart="@+id/labelAttendeeOptions"
+        android:clickable="true"
+        android:onClick="onBadgeClick" />
+
+</RelativeLayout>

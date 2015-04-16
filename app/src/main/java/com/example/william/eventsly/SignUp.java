@@ -1,5 +1,5 @@
 package com.example.william.eventsly;
-import android.app.ActionBar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -26,9 +26,6 @@ public class SignUp extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
-        ActionBar actionBar = getActionBar();
-        actionBar.hide();
 
         CreateAccount = (Button) findViewById(R.id.btnCreateAccount);
         FirstName = (EditText) findViewById(R.id.editTextFirstName);

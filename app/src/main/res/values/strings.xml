@@ -16,20 +16,30 @@
     <string name="hintFirstName">First Name</string>
     <string name="hintConfirmPassword">Confirm Password</string>
     <string name="labelRoleTypeText">Choose your role:</string>
-    <string name="btnPlanner">Planner</string>
+    <string name="btnHost">Host</string>
     <string name="btnAttendee">Attendee</string>
-    <string name="imagePlanner">imagePlannerIcon</string>
-    <string name="imageAttendee">imageAttendeeIcon</string>
-    <string name="menuCreateEvent">Create Event</string>
-    <string name="menuViewEvent">View Event</string>
-    <string name="menuEditEvent">Edit Event</string>
-    <string name="menuSwitchToAttendee">Switch to Attendee</string>
-    <string name="menuSearchEvents">Search Events</string>
-    <string name="menuUnregisterFromEvent">Unregister from an Event</string>
-    <string name="menuSignIntoEvent">Sign into an Event</string>
-    <string name="menuProfileDetails">Profile Details</string>
-    <string name="menuPlanner">Planner</string>
-    <string name="menuAttendee">Attendee</string>
-    <string name="menuCheckInAttendee">Check In Attendee</string>
+    <string name="btnHostCheckIn">Check-in…</string>
+    <string name="btnHostView">View…</string>
+    <string name="btnHostCreate">Create…</string>
+    <string name="labelHostOptions">Host Options:</string>
+    <string name="labelAttendeeOptions">Attendee Options:</string>
+    <string name="btnAttendeeCheckIn">Check-in…</string>
+    <string name="btnAttendeeCheckOut">Checkout…</string>
+    <string name="btnAttendeeBadge">Badge</string>
+    <string name="hintEventName">Event Name</string>
+    <string name="hintAddress">Address</string>
+    <string name="hintDateAndTime">Date and Time</string>
+    <string name="spinnerEventType">Type</string>
+    <string name="hintDescription">Type in Event Description here.</string>
+    <string name="btnCreateEvent">Create Event</string>
+    <string name="btnCancelCreateEvent">Cancel</string>
+
+    <string-array name="EventTypes_array">
+        <item>Select Event Type</item>
+        <item>Conference</item>
+        <item>Concert</item>
+        <item>Sporting Event</item>
+        <item>Other</item>
+    </string-array>
 
 </resources>

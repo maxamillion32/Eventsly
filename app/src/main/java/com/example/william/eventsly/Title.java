@@ -1,5 +1,5 @@
 package com.example.william.eventsly;
-import android.app.ActionBar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,6 @@ public class Title extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
-
-        ActionBar actionBar = getActionBar();
-        actionBar.hide();
     }
 
     public void onLoginClick(View view)
