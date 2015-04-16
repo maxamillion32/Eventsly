@@ -15,7 +15,7 @@ import java.io.File;
 
 public class SignUp extends Activity
 {
-    SQLiteDatabase AccountsDB = null;
+    SQLiteDatabase EventslyDB = null;
 
     Button CreateAccount;
 
@@ -36,9 +36,9 @@ public class SignUp extends Activity
 
         try
         {
-            AccountsDB = this.openOrCreateDatabase("Accounts", MODE_PRIVATE, null);
+            EventslyDB = this.openOrCreateDatabase("Accounts", MODE_PRIVATE, null);
 
-            AccountsDB.execSQL("CREATE TABLE IF NOT EXISTS accounts " +
+            EventslyDB.execSQL("CREATE TABLE IF NOT EXISTS accounts " +
                     "(id integer primary key, firstname VARCHAR, lastname VARCHAR, email VARCHAR, password VARCHAR);");
 
             File database = getApplicationContext().getDatabasePath("Accounts.db");
@@ -64,7 +64,7 @@ public class SignUp extends Activity
 
         startActivity(getTitleScreenIntent);
 
-        AccountsDB.close();
+        EventslyDB.close();
 
         finish();
     }
@@ -84,12 +84,12 @@ public class SignUp extends Activity
             {
                 if(GetEmailChecked(email) == 0)
                 {
-                    AccountsDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
+                    EventslyDB.execSQL("INSERT INTO accounts (firstname, lastname, email, password) VALUES ('" +
                             firstname + "', '" + lastname + "', '" + email + "', '" + password + "');");
 
                     Toast.makeText(this, "Account Creation Successful!!!", Toast.LENGTH_SHORT).show();
 
-                    AccountsDB.close();
+                    EventslyDB.close();
 
                     Intent getLoginScreenIntent = new Intent(this, Login.class);
 
@@ -114,7 +114,7 @@ public class SignUp extends Activity
 
     public int GetEmailChecked(String email)
     {
-        Cursor c = AccountsDB.rawQuery("SELECT email FROM accounts WHERE email =?", new String[]{email});
+        Cursor c = EventslyDB.rawQuery("SELECT email FROM accounts WHERE email =?", new String[]{email});
         c.moveToFirst();
         return c.getCount();
 

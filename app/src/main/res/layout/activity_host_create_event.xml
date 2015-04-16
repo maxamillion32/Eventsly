@@ -81,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:inputType="textMultiLine"
-            android:id="@+id/editTextDecription"
+            android:id="@+id/editTextDescription"
             android:textStyle="italic"
             android:textColor="#fffdfdfe"
             android:hint="@string/hintDescription"

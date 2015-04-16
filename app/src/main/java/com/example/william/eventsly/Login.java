@@ -16,7 +16,7 @@ import java.io.File;
 
 public class Login extends Activity
 {
-    SQLiteDatabase AccountsDB = null;
+    SQLiteDatabase EventslyDB = null;
 
     Button SignIn;
 
@@ -34,9 +34,9 @@ public class Login extends Activity
 
         try
         {
-            AccountsDB = this.openOrCreateDatabase("Accounts", MODE_PRIVATE, null);
+            EventslyDB = this.openOrCreateDatabase("Accounts", MODE_PRIVATE, null);
 
-            AccountsDB.execSQL("CREATE TABLE IF NOT EXISTS accounts " +
+            EventslyDB.execSQL("CREATE TABLE IF NOT EXISTS accounts " +
                     "(id integer primary key, firstname VARCHAR, lastname VARCHAR, email VARCHAR, password VARCHAR);");
 
             File database = getApplicationContext().getDatabasePath("Accounts.db");
@@ -62,7 +62,7 @@ public class Login extends Activity
 
         startActivity(getSignUpScreenIntent);
 
-        AccountsDB.close();
+        EventslyDB.close();
 
         finish();
     }
@@ -73,7 +73,7 @@ public class Login extends Activity
 
         startActivity(getTitleScreenIntent);
 
-        AccountsDB.close();
+        EventslyDB.close();
 
         finish();
     }
@@ -94,7 +94,7 @@ public class Login extends Activity
 
                 startActivity(getRoleScreenIntent);
 
-                AccountsDB.close();
+                EventslyDB.close();
 
                 finish();
 
@@ -115,7 +115,7 @@ public class Login extends Activity
 
     public int GetAccountChecked(String email, String password)
     {
-        Cursor c = AccountsDB.rawQuery("SELECT email, password FROM accounts WHERE email =? AND password =?", new String[]{email, password});
+        Cursor c = EventslyDB.rawQuery("SELECT email, password FROM accounts WHERE email =? AND password =?", new String[]{email, password});
         c.moveToFirst();
         return c.getCount();
 
