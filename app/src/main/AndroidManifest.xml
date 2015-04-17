@@ -17,17 +17,20 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".Login"
+        <activity
+            android:name=".Login"
             android:label="Login"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".SignUp"
+        <activity
+            android:name=".SignUp"
             android:label="Create Account"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".Role"
+        <activity
+            android:name=".Role"
             android:label="Choose Your Role:"
             android:screenOrientation="portrait">
         </activity>
@@ -37,32 +40,44 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".Attendee"
+        <activity
+            android:name=".Attendee"
             android:label="Attendee Menu"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".HostCheckIn"
+        <activity
+            android:name=".HostCheckIn"
             android:label="Host Check-In"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".HostCreateEvent"
+        <activity
+            android:name=".HostCreateEvent"
             android:label="Create Event"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".HostViewEvent"
+        <activity
+            android:name=".HostViewEvent"
             android:label="View Events"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AttendeeBadge"
+        <activity
+            android:name=".HostRegisterList"
+            android:label="Add to Register List"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".AttendeeBadge"
             android:label="My Badge"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AttendeeCheckIn"
+        <activity
+            android:name=".AttendeeCheckIn"
             android:label="Attendee Check-In"
             android:screenOrientation="portrait">
         </activity>

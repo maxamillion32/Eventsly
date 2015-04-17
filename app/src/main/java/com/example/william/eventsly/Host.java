@@ -36,9 +36,18 @@ public class Host extends Activity
 
     public void onCheckInClick(View view)
     {
-        Intent getCheckInIntent = new Intent(this, HostCheckIn.class);
-        startActivity(getCheckInIntent);
+        Intent getCheckInScreenIntent = new Intent(this, HostCheckIn.class);
+        startActivity(getCheckInScreenIntent);
 
         finish();
     }
+
+    public void onRegisterGuestsClick(View view)
+    {
+        Intent getRegisterGuestsScreenIntent = new Intent(this, HostRegisterList.class);
+        startActivity(getRegisterGuestsScreenIntent);
+
+        finish();
+    }
+
 }

@@ -18,13 +18,13 @@
     <string name="labelRoleTypeText">Choose your role:</string>
     <string name="btnHost">Host</string>
     <string name="btnAttendee">Attendee</string>
-    <string name="btnHostCheckIn">Check-in…</string>
-    <string name="btnHostView">View…</string>
-    <string name="btnHostCreate">Create…</string>
+    <string name="btnHostCheckIn">Check-in Guests</string>
+    <string name="btnHostView">View Events</string>
+    <string name="btnHostCreate">Create Events</string>
     <string name="labelHostOptions">Host Options:</string>
     <string name="labelAttendeeOptions">Attendee Options:</string>
-    <string name="btnAttendeeCheckIn">Check-in…</string>
-    <string name="btnAttendeeCheckOut">Checkout…</string>
+    <string name="btnAttendeeCheckIn">Check-in</string>
+    <string name="btnAttendeeCheckOut">Checkout</string>
     <string name="btnAttendeeBadge">Badge</string>
     <string name="hintEventName">Event Name</string>
     <string name="hintAddress">Address</string>
@@ -34,7 +34,17 @@
     <string name="btnCreateEvent">Create Event</string>
     <string name="btnCancelCreateEvent">Cancel</string>
     <string name="btnEditEvent">Edit</string>
-    <string name="labelRegisteredAttendees">Registered Attendees:</string>
+    <string name="labelRegisteredGuests">Registered Guests:</string>
+    <string name="btnViewDetails">View Details</string>
+    <string name="btnSaveEditEvent">Save</string>
+    <string name="btnHostMenu">Main Menu</string>
+    <string name="editTextRegisterFirstName">First Name</string>
+    <string name="editTextRegisterLastName">Last Name</string>
+    <string name="editTextRegisterEmail">Email Address</string>
+    <string name="btnRegister">Register</string>
+    <string name="btnRegisterHostMenu">Main Menu</string>
+    <string name="btnRegisterGuests">Register Guests</string>
+    <string name="editTextRegisterAccess">Access Identification</string>
 
     <string-array name="EventTypes_array">
         <item>Select Event Type</item>

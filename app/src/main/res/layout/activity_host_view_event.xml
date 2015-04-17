@@ -23,6 +23,11 @@
             android:contentDescription=""
             android:layoutMode="clipBounds" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +73,6 @@
             android:visibility="visible"
             android:touchscreenBlocksFocus="false"
             android:dropDownSelector="#fffdfdfe"
-            android:textColorHint="#78fdfdfe"
             android:contentDescription="@string/spinnerEventType"
             android:layoutMode="clipBounds"
             android:layout_gravity="bottom" />
@@ -86,6 +90,7 @@
             android:id="@+id/editTextViewDescription"
             android:textStyle="italic"
             android:textColor="#fffdfdfe"
+            android:textColorHint="#78fdfdfe"
             android:hint="@string/hintDescription"
             android:editable="true"
             android:clickable="true"
@@ -106,14 +111,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/labelRegisteredAttendees"
-            android:id="@+id/labelRegisteredAttendees"
-            android:textSize="30sp" />
+            android:text="@string/labelRegisteredGuests"
+            android:id="@+id/labelRegisteredGuests"
+            android:textSize="30sp"
+            android:textColor="#fffdfdfe"
+            android:textStyle="italic" />
 
         <ListView
             android:layout_width="298dp"
             android:layout_height="200dp"
-            android:id="@+id/listRegisteredAttendees"
+            android:id="@+id/listViewRegisteredGuests"
             android:nestedScrollingEnabled="true"
             android:smoothScrollbar="false" />
 
@@ -134,6 +141,37 @@
             android:textStyle="italic"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnSaveEditEvent"
+            android:id="@+id/btnSaveEditEvent"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:background="@drawable/eventsly_buttons"
+            android:textStyle="italic"
+            android:textSize="25sp"
+            android:textColor="#fffdfdfe"
+            android:onClick="onSaveEditEventClick" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnHostMenu"
+            android:id="@+id/btnHostMenu"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/eventsly_buttons"
+            android:clickable="true"
+            android:onClick="onMainMenuClick"
+            android:textColor="#fffdfdfe"
+            android:textSize="25sp"
+            android:textStyle="italic" />
 
         <Space
             android:layout_width="match_parent"

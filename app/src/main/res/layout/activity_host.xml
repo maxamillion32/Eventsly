@@ -1,50 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".Host">
 
 
-    <TextView
+    <Button
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/labelHostOptions"
-        android:textStyle="italic"
-        android:textColor="#fffdfdfe"
-        android:textSize="42sp"
-        android:text="@string/labelHostOptions"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="75dp"
         android:text="@string/btnHostCreate"
         android:id="@+id/btnCreate"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="58dp"
         android:onClick="onCreateClick"
         android:background="@drawable/eventsly_buttons"
         android:clickable="true"
         android:textColor="#fffdfdfe"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="italic"
-        android:layout_below="@+id/labelHostOptions"
-        android:layout_alignEnd="@+id/labelHostOptions"
-        android:layout_alignStart="@+id/labelHostOptions" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:text="@string/btnHostView"
         android:id="@+id/btnView"
         android:layout_marginTop="54dp"
         android:background="@drawable/eventsly_buttons"
         android:clickable="true"
         android:onClick="onViewClick"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="italic"
         android:textColor="#fffdfdfe"
         android:layout_below="@+id/btnCreate"
@@ -53,7 +41,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:text="@string/btnHostCheckIn"
         android:id="@+id/btnCheckIn"
         android:layout_below="@+id/btnView"
@@ -64,7 +52,23 @@
         android:clickable="true"
         android:onClick="onCheckInClick"
         android:textColor="#fffdfdfe"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="italic" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnRegisterGuests"
+        android:id="@+id/btnRegisterGuests"
+        android:layout_below="@+id/btnCheckIn"
+        android:layout_marginTop="52dp"
+        android:layout_alignEnd="@+id/btnCheckIn"
+        android:layout_alignStart="@+id/btnCheckIn"
+        android:background="@drawable/eventsly_buttons"
+        android:clickable="true"
+        android:textColor="#fffdfdfe"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:onClick="onRegisterGuestsClick" />
 
 </RelativeLayout>

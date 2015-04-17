@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".HostRegisterList">
+
+    <Spinner
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerRegisterGuestEvent"
+        android:clickable="true"
+        android:spinnerMode="dialog"
+        android:layout_above="@+id/space7"
+        android:layout_alignStart="@+id/editTextRegisterFirstName" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:id="@+id/space7"
+        android:layout_above="@+id/editTextRegisterFirstName"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextRegisterFirstName"
+        android:editable="true"
+        android:clickable="true"
+        android:hint="@string/editTextRegisterFirstName"
+        android:textColor="#fffdfdfe"
+        android:textColorHint="#78fdfdfe"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:layout_above="@+id/space6"
+        android:layout_alignStart="@+id/editTextRegisterLastName" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:id="@+id/space6"
+        android:layout_above="@+id/editTextRegisterLastName"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextRegisterLastName"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:textColorHint="#78fdfdfe"
+        android:singleLine="true"
+        android:hint="@string/editTextRegisterLastName"
+        android:editable="true"
+        android:clickable="true"
+        android:layout_above="@+id/space5"
+        android:layout_alignStart="@+id/editTextRegisterEmail" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:id="@+id/space5"
+        android:layout_above="@+id/editTextRegisterEmail"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editTextRegisterEmail"
+        android:hint="@string/editTextRegisterEmail"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:textColorHint="#78fdfdfe"
+        android:editable="true"
+        android:clickable="true"
+        android:layout_above="@+id/space2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnRegister"
+        android:id="@+id/btnRegister"
+        android:clickable="true"
+        android:background="@drawable/eventsly_buttons"
+        android:onClick="onRegisterClick"
+        android:textStyle="italic"
+        android:textSize="35sp"
+        android:textColor="#fffdfdfe"
+        android:layout_above="@+id/btnRegisterHostMenu"
+        android:layout_alignStart="@+id/editTextRegisterAccess"
+        android:layout_alignEnd="@+id/editTextRegisterAccess" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:id="@+id/space2"
+        android:layout_above="@+id/editTextRegisterAccess"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegisterHostMenu"
+        android:background="@drawable/eventsly_buttons"
+        android:clickable="true"
+        android:singleLine="true"
+        android:onClick="onMainMenuClick"
+        android:text="@string/btnRegisterHostMenu"
+        android:textColor="#fffdfdfe"
+        android:textSize="35sp"
+        android:textStyle="italic"
+        android:layout_alignBottom="@+id/space3"
+        android:layout_alignStart="@+id/btnRegister"
+        android:layout_alignEnd="@+id/btnRegister" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/space3" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/space8"
+        android:layout_above="@+id/btnRegister"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editTextRegisterAccess"
+        android:hint="@string/editTextRegisterAccess"
+        android:textColorHint="#78fdfdfe"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#fffdfdfe"
+        android:clickable="true"
+        android:editable="true"
+        android:layout_above="@+id/space8"
+        android:layout_alignStart="@+id/editTextRegisterEmail" />
+
+</RelativeLayout>

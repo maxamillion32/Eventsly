@@ -45,12 +45,12 @@ public class HostCreateEvent extends Activity
 
         try
         {
-            EventslyDB = this.openOrCreateDatabase("Events", MODE_PRIVATE, null);
+            EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
 
             EventslyDB.execSQL("CREATE TABLE IF NOT EXISTS events " +
                     "(id integer primary key, eventname VARCHAR, dateandtime VARCHAR, address VARCHAR, eventtype VARCHAR, description VARCHAR);");
 
-            File database = getApplicationContext().getDatabasePath("Events.db");
+            File database = getApplicationContext().getDatabasePath("eventslyDB.db");
 
             if (!database.exists())
             {
@@ -63,7 +63,7 @@ public class HostCreateEvent extends Activity
         }
         catch(Exception e)
         {
-            Log.e("Events ERROR", "Error Creating Database");
+            Log.e("eventslyDB ERROR", "Error Creating Database");
         }
     }
 
@@ -105,7 +105,7 @@ public class HostCreateEvent extends Activity
                         }
                         else
                         {
-                            EventslyDB.execSQL("INSERT INTO Events (eventname, dateandtime, address, eventtype, description) VALUES ('" +
+                            EventslyDB.execSQL("INSERT INTO events (eventname, dateandtime, address, eventtype, description) VALUES ('" +
                                     eventname + "', '" + dateandtime + "', '" + address + "', '" + eventtype + "', '" + description + "');");
 
                             Toast.makeText(this, "Event Creation Successful", Toast.LENGTH_SHORT).show();

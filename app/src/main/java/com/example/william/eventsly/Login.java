@@ -34,12 +34,12 @@ public class Login extends Activity
 
         try
         {
-            EventslyDB = this.openOrCreateDatabase("Accounts", MODE_PRIVATE, null);
+            EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
 
             EventslyDB.execSQL("CREATE TABLE IF NOT EXISTS accounts " +
                     "(id integer primary key, firstname VARCHAR, lastname VARCHAR, email VARCHAR, password VARCHAR);");
 
-            File database = getApplicationContext().getDatabasePath("Accounts.db");
+            File database = getApplicationContext().getDatabasePath("eventslyDB.db");
 
             if (!database.exists())
             {
@@ -52,7 +52,7 @@ public class Login extends Activity
         }
         catch(Exception e)
         {
-            Log.e("ACCOUNTS ERROR", "Error Creating Database");
+            Log.e("eventslyDB ERROR", "Error Creating Database");
         }
     }
 
