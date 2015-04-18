@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.io.File;
@@ -26,7 +27,10 @@ public class HostViewEvent extends Activity
 
     Spinner ChooseEvent, EventType;
 
+    ListView EventGuestList;
+
     ArrayList<String> EventList = new ArrayList<>();
+    ArrayList<String> GuestList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class HostViewEvent extends Activity
         SaveEditEvent.setVisibility(View.GONE);
 
         ChooseEvent = (Spinner) findViewById(R.id.spinnerChooseEvent);
+
+        EventGuestList = (ListView) findViewById(R.id.listViewRegisteredGuests);
 
         try
         {
@@ -83,6 +89,8 @@ public class HostViewEvent extends Activity
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ChooseEvent.setAdapter(spinnerAdapter);
 
+        final ArrayAdapter<String> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GuestList);
+
         int id = 1;
         String stringID = Integer.toString(id);
 
@@ -105,6 +113,18 @@ public class HostViewEvent extends Activity
                 Address.setText(getAddress(eventname));
                 EventType.setSelection(getSpinnerIndex(EventType, getEventType(eventname)));
                 Description.setText(getDescription(eventname));
+
+                int rowid = 1;
+                String stringRowID = Integer.toString(rowid);
+
+                while(getNameListCount(eventname, stringRowID) != 0)
+                {
+                    GuestList.add(getRegisteredGuestsFirstName(eventname, stringRowID) + " " + getRegisteredGuestsLastName(eventname, stringRowID));
+
+                    rowid++;
+                    stringRowID = Integer.toString(rowid);
+                }
+                    EventGuestList.setAdapter(listAdapter);
             }
 
             @Override
@@ -155,6 +175,27 @@ public class HostViewEvent extends Activity
         Cursor c = EventslyDB.rawQuery("SELECT description FROM events WHERE eventname =?", new String[]{eventname});
         c.moveToFirst();
         return c.getString(c.getColumnIndex("description"));
+    }
+
+    public String getRegisteredGuestsFirstName(String eventname, String rowid)
+    {
+        Cursor c = EventslyDB.rawQuery("SELECT firstname FROM eventguestlist WHERE eventname=? and rowid=?", new String[]{eventname, rowid});
+        c.moveToFirst();
+        return c.getString(c.getColumnIndex("firstname"));
+    }
+
+    public String getRegisteredGuestsLastName(String eventname, String rowid)
+    {
+        Cursor c = EventslyDB.rawQuery("SELECT lastname FROM eventguestlist WHERE eventname=? and rowid=?", new String[]{eventname, rowid});
+        c.moveToFirst();
+        return c.getString(c.getColumnIndex("lastname"));
+    }
+
+    public int getNameListCount(String eventname, String rowid)
+    {
+        Cursor c = EventslyDB.rawQuery("SELECT firstname FROM eventguestlist WHERE eventname=? and rowid=?", new String[]{eventname, rowid});
+        c.moveToFirst();
+        return c.getCount();
     }
 
     public int getSpinnerIndex(Spinner chooseEvent, String spinnerEvent)

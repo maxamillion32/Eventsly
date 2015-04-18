@@ -3,11 +3,14 @@
     <words>
       <w>accesslevel</w>
       <w>confirmpassword</w>
+      <w>dateandtime</w>
       <w>eventguestlist</w>
       <w>eventname</w>
       <w>eventsly</w>
+      <w>eventtype</w>
       <w>firstname</w>
       <w>lastname</w>
+      <w>rowid</w>
     </words>
   </dictionary>
 </component>
