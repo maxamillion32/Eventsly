@@ -39,6 +39,10 @@ public class Login extends Activity
             EventslyDB.execSQL("CREATE TABLE IF NOT EXISTS accounts " +
                     "(id integer primary key, firstname VARCHAR, lastname VARCHAR, email VARCHAR, password VARCHAR);");
 
+            EventslyDB.execSQL("CREATE TABLE IF NOT EXISTS currentuser (id integer primary key, email VARCHAR);");
+
+            EventslyDB.execSQL("DELETE FROM currentuser");
+
             File database = getApplicationContext().getDatabasePath("eventslyDB.db");
 
             if (!database.exists())
@@ -88,6 +92,8 @@ public class Login extends Activity
         {
             if (GetAccountChecked(email, password) > 0)
             {
+                EventslyDB.execSQL("INSERT INTO currentuser (email) VALUES ('" + email + "');");
+
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
 
                 Intent getRoleScreenIntent = new Intent(this, Role.class);

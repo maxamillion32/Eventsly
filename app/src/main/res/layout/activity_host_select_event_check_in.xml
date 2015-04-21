@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerCheckEventType"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="135dp"
+        android:clickable="true"
+        android:spinnerMode="dialog" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCheckInGuest"
+        android:id="@+id/btnCheckInGuest"
+        android:layout_marginTop="114dp"
+        android:layout_below="@+id/spinnerCheckEventType"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/eventsly_buttons"
+        android:clickable="true"
+        android:onClick="onCheckInGuestClick"
+        android:textStyle="italic"
+        android:textSize="30sp"
+        android:textColor="#fffdfdfe" />
+</RelativeLayout>

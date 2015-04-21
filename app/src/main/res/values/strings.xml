@@ -45,6 +45,15 @@
     <string name="btnRegisterHostMenu">Main Menu</string>
     <string name="btnRegisterGuests">Register Guests</string>
     <string name="editTextRegisterAccess">Access Identification</string>
+    <string name="labelGuestCheckIn">Please place your device up against the Host\'s device now.</string>
+    <string name="labelHostCheckIn">Please place your device up against the Guest\'s device now.</string>
+    <string name="btnSendEmail">Send Credentials</string>
+    <string name="btnCheckCredentials">Check Credentials</string>
+    <string name="btnSeeCredentials">See Credentials</string>
+    <string name="labelGuestCreds"></string>
+    <string name="btnCheckInGuest">Check-In Guest</string>
+    <string name="labelBadge"></string>
+    <string name="btnGuestMenu">Main Menu</string>
 
     <string-array name="EventTypes_array">
         <item>Select Event Type</item>

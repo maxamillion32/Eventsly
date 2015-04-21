@@ -36,8 +36,8 @@ public class Host extends Activity
 
     public void onCheckInClick(View view)
     {
-        Intent getCheckInScreenIntent = new Intent(this, HostCheckIn.class);
-        startActivity(getCheckInScreenIntent);
+        Intent getSelectEventCheckInScreenIntent = new Intent(this, HostSelectEventCheckIn.class);
+        startActivity(getSelectEventCheckInScreenIntent);
 
         finish();
     }

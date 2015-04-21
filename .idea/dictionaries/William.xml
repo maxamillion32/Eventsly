@@ -2,7 +2,11 @@
   <dictionary name="William">
     <words>
       <w>accesslevel</w>
+      <w>checkemail</w>
+      <w>checkevent</w>
       <w>confirmpassword</w>
+      <w>creds</w>
+      <w>currentuser</w>
       <w>dateandtime</w>
       <w>eventguestlist</w>
       <w>eventname</w>
@@ -10,6 +14,7 @@
       <w>eventtype</w>
       <w>firstname</w>
       <w>lastname</w>
+      <w>receivedfile</w>
       <w>rowid</w>
     </words>
   </dictionary>
