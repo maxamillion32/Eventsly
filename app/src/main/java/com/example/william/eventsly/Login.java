@@ -119,6 +119,16 @@ public class Login extends Activity
 
     }
 
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Title.class);
+        startActivity(getPreviousScreenIntent);
+
+        EventslyDB.close();
+
+        finish();
+    }
+
     public int GetAccountChecked(String email, String password)
     {
         Cursor c = EventslyDB.rawQuery("SELECT email, password FROM accounts WHERE email =? AND password =?", new String[]{email, password});

@@ -126,4 +126,15 @@ public class SignUp extends Activity
     {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Login.class);
+        startActivity(getPreviousScreenIntent);
+
+        EventslyDB.close();
+
+        finish();
+    }
+
 }

@@ -39,4 +39,13 @@ public class Attendee extends Activity
 
         finish();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Role.class);
+        startActivity(getPreviousScreenIntent);
+
+        finish();
+    }
+
 }

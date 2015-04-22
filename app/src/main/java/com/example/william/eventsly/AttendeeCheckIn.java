@@ -44,7 +44,10 @@ public class AttendeeCheckIn extends Activity
         //Get the text file
         File EmailAddress = new File(sdcardEmail, rFileEmail);
 
-        EmailAddress.delete();
+        if(EmailAddress.exists())
+        {
+            EmailAddress.delete();
+        }
 
         try
         {
@@ -132,6 +135,7 @@ public class AttendeeCheckIn extends Activity
                 File fileToTransfer = new File(fileDirectory, fileName);
                 fileToTransfer.setReadable(true, true);
                 fileToTransfer.setWritable(true, true);
+                EventslyDB.close();
 
                 nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
 
@@ -150,8 +154,21 @@ public class AttendeeCheckIn extends Activity
         Intent getBadgeScreenIntent = new Intent(this, AttendeeBadge.class);
         startActivity(getBadgeScreenIntent);
 
+        EventslyDB.close();
+
         finish();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Attendee.class);
+        startActivity(getPreviousScreenIntent);
+
+        EventslyDB.close();
+
+        finish();
+    }
+
 }
 
 

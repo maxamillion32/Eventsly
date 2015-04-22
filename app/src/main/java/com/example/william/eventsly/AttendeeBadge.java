@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,4 +89,13 @@ public class AttendeeBadge extends Activity
 
         finish();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Attendee.class);
+        startActivity(getPreviousScreenIntent);
+
+        finish();
+    }
+
 }

@@ -31,14 +31,14 @@ public class HostCheckIn extends Activity
     NfcAdapter nfcAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host_check_in);
         Intent intent = getIntent();
         String ChosenEvent = intent.getExtras().getString("GuestEvent");
 
         GuestCreds = (TextView) findViewById(R.id.labelGuestCreds);
+
 
         String rFileAccess = "EventslyAccess.txt";
 
@@ -47,48 +47,40 @@ public class HostCheckIn extends Activity
         //Get the text file
         File receivedAccessFile = new File(sdcardAccess, rFileAccess);
 
-        receivedAccessFile.delete();
+        if (receivedAccessFile.exists()) {
+            receivedAccessFile.delete();
+        }
 
-        try
-        {
+        try {
             EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
 
             File database = getApplicationContext().getDatabasePath("eventslyDB.db");
 
-            if (!database.exists())
-            {
+            if (!database.exists()) {
                 Toast.makeText(this, "Database Created or Exists", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
+            } else {
                 Toast.makeText(this, "Database doesn't exist", Toast.LENGTH_SHORT).show();
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.e("eventslyDB ERROR", "Error Creating Database");
         }
 
         PackageManager pm = this.getPackageManager();
         // Check whether NFC is available on device
-        if (!pm.hasSystemFeature(PackageManager.FEATURE_NFC))
-        {
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_NFC)) {
             // NFC is not available on the device.
             Toast.makeText(this, "The device does not has NFC hardware.", Toast.LENGTH_SHORT).show();
         }
         // Check whether device is running Android 4.1 or higher
-        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
-        {
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
             // Android Beam feature is not supported.
             Toast.makeText(this, "Android Beam is not supported.", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
             // / NFC and Android Beam file transfer is supported.
             Toast.makeText(this, "Android Beam is supported on your device.", Toast.LENGTH_SHORT).show();
         }
 
-        String rFileName = "EmailAddress-0.txt";
+        String rFileName = "EmailAddress.txt";
 
         File sdcard = Environment.getExternalStorageDirectory();
 
@@ -110,7 +102,7 @@ public class HostCheckIn extends Activity
             br.close();
             String getEmail = String.valueOf(text);
             GuestCreds.setText(getEmail);
-            receivedfile.delete();
+
         }
         catch (IOException e)
         {
@@ -134,15 +126,18 @@ public class HostCheckIn extends Activity
                 br.close();
                 String getEmail2 = String.valueOf(text2);
                 GuestCreds.setText(getEmail2);
-                receivedfile2.delete();
+
             }
             catch (IOException e2)
             {
                 Toast.makeText(this, "File can't be found.", Toast.LENGTH_LONG).show();
             }
+            receivedfile2.delete();
         }
+        receivedfile.delete();
 
         String checkemail = GuestCreds.getText().toString();
+        Toast.makeText(this, checkemail, Toast.LENGTH_LONG).show();
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         // Check whether NFC is enabled on device
@@ -164,7 +159,7 @@ public class HostCheckIn extends Activity
         else
         {
 
-            if (getAccessFirstName(checkemail, ChosenEvent).equals(""))
+            if (getFileCount(checkemail, ChosenEvent) == 0)
             {
                 Toast.makeText(this, "Access Denied.", Toast.LENGTH_LONG).show();
 
@@ -198,13 +193,14 @@ public class HostCheckIn extends Activity
                 File fileToTransfer = new File(fileDirectory, fileName);
                 fileToTransfer.setReadable(true, true);
                 fileToTransfer.setWritable(true, true);
+                EventslyDB.close();
 
                 nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
             }
             else
             {
-                String content = (getAccessFirstName(checkemail, ChosenEvent) + " " + getAccessLastName(checkemail, ChosenEvent) +
-                        " " + getAccessLevel(checkemail, ChosenEvent));
+                String content = "Name: " + (getAccessFirstName(checkemail, ChosenEvent) + " " + getAccessLastName(checkemail, ChosenEvent) +
+                         "          Access Level: " + getAccessLevel(checkemail, ChosenEvent));
                 File file;
                 FileOutputStream outputStream;
                 try
@@ -234,6 +230,7 @@ public class HostCheckIn extends Activity
                 File fileToTransfer = new File(fileDirectory, fileName);
                 fileToTransfer.setReadable(true, true);
                 fileToTransfer.setWritable(true, true);
+                EventslyDB.close();
 
                 nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
 
@@ -262,7 +259,22 @@ public class HostCheckIn extends Activity
         return c.getString(c.getColumnIndex("accesslevel"));
     }
 
+    public int getFileCount(String email, String checkevent)
+    {
+        Cursor c = EventslyDB.rawQuery("SELECT * FROM eventguestlist WHERE email =? and eventname =?", new String[]{email, checkevent});
+        c.moveToFirst();
+        return c.getCount();
+    }
 
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, HostSelectEventCheckIn.class);
+        startActivity(getPreviousScreenIntent);
+
+        EventslyDB.close();
+
+        finish();
+    }
 
 }
 

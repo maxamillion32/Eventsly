@@ -33,4 +33,13 @@ public class Role extends Activity
 
         finish();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Login.class);
+        startActivity(getPreviousScreenIntent);
+
+        finish();
+    }
+
 }

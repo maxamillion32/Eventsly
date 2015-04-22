@@ -22,95 +22,136 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         
         <activity
             android:name=".Login"
             android:label="Login"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Title">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Title" />
         </activity>
 
         <activity
             android:name=".SignUp"
             android:label="Create Account"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Login">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Login" />
         </activity>
 
         <activity
             android:name=".Role"
             android:label="Choose Your Role:"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Login">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Login" />
         </activity>
 
         <activity android:name=".Host"
             android:label="Host Menu"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Role">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Role" />
         </activity>
 
         <activity
             android:name=".Attendee"
             android:label="Attendee Menu"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Role">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Role" />
         </activity>
 
         <activity
             android:name=".HostCheckIn"
             android:label="Host Check-In"
-            android:screenOrientation="portrait">
-
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.HostSelectEventCheckIn">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.HostSelectEventCheckIn" />
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
         </activity>
 
         <activity
             android:name=".HostCreateEvent"
             android:label="Create Event"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Host">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Host" />
         </activity>
 
         <activity
             android:name=".HostViewEvent"
             android:label="View Events"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Host">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Host" />
         </activity>
 
         <activity
             android:name=".HostRegisterList"
             android:label="Add to Register List"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Host">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Host" />
         </activity>
 
         <activity
             android:name=".HostSelectEventCheckIn"
             android:label="Add to Register List"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Host">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Host" />
         </activity>
 
         <activity
             android:name=".AttendeeBadge"
             android:label="My Badge"
-            android:screenOrientation="portrait">
-
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Attendee">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Attendee" />
         </activity>
 
         <activity
             android:name=".AttendeeCheckIn"
             android:label="Guest Check-In"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.example.william.eventsly.Attendee">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.william.eventsly.Attendee" />
 
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
         </activity>
-
     </application>
-
 </manifest>

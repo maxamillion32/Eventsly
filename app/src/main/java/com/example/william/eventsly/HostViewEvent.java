@@ -300,13 +300,24 @@ public class HostViewEvent extends Activity
 
     public void onMainMenuClick(View view)
     {
-        EventslyDB.close();
-
         Intent getHostMenuScreenIntent = new Intent(this, Host.class);
         startActivity(getHostMenuScreenIntent);
 
+        EventslyDB.close();
+
         finish();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Title.class);
+        startActivity(getPreviousScreenIntent);
+
+        EventslyDB.close();
+
+        finish();
+    }
+
 }
 
 

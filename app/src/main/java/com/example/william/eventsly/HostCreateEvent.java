@@ -128,9 +128,21 @@ public class HostCreateEvent extends Activity
     public void onCancelCreateEventClick(View view)
     {
         Intent getHostScreenIntent = new Intent(this, Host.class);
-
         startActivity(getHostScreenIntent);
+
+        EventslyDB.close();
 
         finish();
     }
+
+    public void onBackPressed()
+    {
+        Intent getPreviousScreenIntent = new Intent(this, Host.class);
+        startActivity(getPreviousScreenIntent);
+
+        EventslyDB.close();
+
+        finish();
+    }
+
 }
