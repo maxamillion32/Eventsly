@@ -11,15 +11,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-
 
 
 public class HostCheckIn extends Activity
@@ -31,65 +30,59 @@ public class HostCheckIn extends Activity
     NfcAdapter nfcAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host_check_in);
         Intent intent = getIntent();
+        // getting string sent from previous screen
         String ChosenEvent = intent.getExtras().getString("GuestEvent");
-
+        // referencing all items by their id in the layout
         GuestCreds = (TextView) findViewById(R.id.labelGuestCreds);
-
-
+        // file name
         String rFileAccess = "EventslyAccess.txt";
-
+        // file directory
         File sdcardAccess = Environment.getExternalStorageDirectory();
-
         //Get the text file
         File receivedAccessFile = new File(sdcardAccess, rFileAccess);
-
-        if (receivedAccessFile.exists()) {
+        // if the file exists delete it
+        if (receivedAccessFile.exists())
+        {
             receivedAccessFile.delete();
         }
-
-        try {
-            EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
-
-            File database = getApplicationContext().getDatabasePath("eventslyDB.db");
-
-            if (!database.exists()) {
-                Toast.makeText(this, "Database Created or Exists", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Database doesn't exist", Toast.LENGTH_SHORT).show();
-            }
-        } catch (Exception e) {
-            Log.e("eventslyDB ERROR", "Error Creating Database");
-        }
+        // opening database
+        EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
 
         PackageManager pm = this.getPackageManager();
-        // Check whether NFC is available on device
-        if (!pm.hasSystemFeature(PackageManager.FEATURE_NFC)) {
+        // check whether NFC is available on device
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_NFC))
+        {
             // NFC is not available on the device.
             Toast.makeText(this, "The device does not has NFC hardware.", Toast.LENGTH_SHORT).show();
         }
-        // Check whether device is running Android 4.1 or higher
-        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            // Android Beam feature is not supported.
-            Toast.makeText(this, "Android Beam is not supported.", Toast.LENGTH_SHORT).show();
-        } else {
-            // / NFC and Android Beam file transfer is supported.
-            Toast.makeText(this, "Android Beam is supported on your device.", Toast.LENGTH_SHORT).show();
+        // check whether device is running Android 4.1 or higher
+        else
+        {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+            {
+                // android beam feature is not supported.
+                Toast.makeText(this, "Android Beam is not supported.", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                // NFC and android beam file transfer is supported.
+                Toast.makeText(this, "Android Beam is supported on your device.", Toast.LENGTH_SHORT).show();
+            }
         }
-
+        // file name
         String rFileName = "EmailAddress.txt";
-
+        // file directory
         File sdcard = Environment.getExternalStorageDirectory();
-
-        //Get the text file
+        // get the text file
         File receivedfile = new File(sdcard, rFileName);
-
-        //Read text from file
+        // read text from file
         StringBuilder text = new StringBuilder();
-
+        // reads the text from the file and adds it to a string
         try
         {
             BufferedReader br = new BufferedReader(new FileReader(receivedfile));
@@ -106,14 +99,13 @@ public class HostCheckIn extends Activity
         }
         catch (IOException e)
         {
+            // file directory
             File sdcard2 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-
-            //Get the text file
+            // get the text file
             File receivedfile2 = new File(sdcard2, rFileName);
-
-            //Read text from file
+            // read text from file
             StringBuilder text2 = new StringBuilder();
-
+            // reads the text from the file and adds it to a string
             try
             {
                 BufferedReader br = new BufferedReader(new FileReader(receivedfile2));
@@ -132,15 +124,16 @@ public class HostCheckIn extends Activity
             {
                 Toast.makeText(this, "File can't be found.", Toast.LENGTH_LONG).show();
             }
+            // delete file after use
             receivedfile2.delete();
         }
+        // delete file after use
         receivedfile.delete();
-
+        // the text that was read from the file
         String checkemail = GuestCreds.getText().toString();
-        Toast.makeText(this, checkemail, Toast.LENGTH_LONG).show();
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        // Check whether NFC is enabled on device
+        // check whether NFC is enabled on device
         if (!nfcAdapter.isEnabled())
         {
             // NFC is disabled, show the settings UI
@@ -148,96 +141,102 @@ public class HostCheckIn extends Activity
             Toast.makeText(this, "Please enable NFC.", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Settings.ACTION_NFC_SETTINGS));
         }
-        // Check whether Android Beam feature is enabled on device
-        else if (!nfcAdapter.isNdefPushEnabled())
-        {
-            // Android Beam is disabled, show the settings UI
-            // to enable Android Beam
-            Toast.makeText(this, "Please enable Android Beam.", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(Settings.ACTION_NFCSHARING_SETTINGS));
-        }
+        // check whether android beam feature is enabled on device
         else
         {
-
-            if (getFileCount(checkemail, ChosenEvent) == 0)
+            if (!nfcAdapter.isNdefPushEnabled())
             {
-                Toast.makeText(this, "Access Denied.", Toast.LENGTH_LONG).show();
-
-                String content = "Access Denied.";
-                File file;
-                FileOutputStream outputStream;
-                try
-                {
-
-                    file = new File(Environment.getExternalStorageDirectory(), "EventslyAccess.txt");
-
-                    outputStream = new FileOutputStream(file);
-                    outputStream.write(content.getBytes());
-                    outputStream.close();
-                }
-                catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
-                // NFC and Android Beam both are enabled
-
-                // File to be transferred
-                // For the sake of this tutorial I've placed an image
-                // named 'wallpaper.png' in the 'Pictures' directory
-                String fileName = "EventslyAccess.txt";
-
-                // Retrieve the path to the user's public pictures directory
-                File fileDirectory = Environment.getExternalStorageDirectory();
-
-                // Create a new file using the specified directory and name
-                File fileToTransfer = new File(fileDirectory, fileName);
-                fileToTransfer.setReadable(true, true);
-                fileToTransfer.setWritable(true, true);
-                EventslyDB.close();
-
-                nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
+                // android beam is disabled, show the settings UI
+                // to enable android beam
+                Toast.makeText(this, "Please enable Android Beam.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Settings.ACTION_NFCSHARING_SETTINGS));
             }
             else
             {
-                String content = "Name: " + (getAccessFirstName(checkemail, ChosenEvent) + " " + getAccessLastName(checkemail, ChosenEvent) +
-                         "          Access Level: " + getAccessLevel(checkemail, ChosenEvent));
-                File file;
-                FileOutputStream outputStream;
-                try
+                // if the string does not return a row for that event in the database
+                if (getEmailAndEventVerified(checkemail, ChosenEvent) == 0)
                 {
+                    // creating string to be place in a file
+                    String content = "Access Denied.";
+                    File file;
+                    FileOutputStream outputStream;
+                    try
+                    {
+                        // creating file
+                        file = new File(Environment.getExternalStorageDirectory(), "EventslyAccess.txt");
 
-                    file = new File(Environment.getExternalStorageDirectory(), "EventslyAccess.txt");
+                        outputStream = new FileOutputStream(file);
+                        outputStream.write(content.getBytes());
+                        outputStream.close();
+                    }
+                    catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    // NFC and android beam both are enabled
 
-                    outputStream = new FileOutputStream(file);
-                    outputStream.write(content.getBytes());
-                    outputStream.close();
+                    // file to be transferred
+                    String fileName = "EventslyAccess.txt";
+
+                    // retrieve the path to the user's directory
+                    File fileDirectory = Environment.getExternalStorageDirectory();
+
+                    // create a new file using the specified directory and name
+                    File fileToTransfer = new File(fileDirectory, fileName);
+                    // file set to readable and writable
+                    fileToTransfer.setReadable(true, true);
+                    fileToTransfer.setWritable(true, true);
+                    // closing database
+                    EventslyDB.close();
+                    // push file using NFC
+                    nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
                 }
-                catch (IOException e)
+                // if the string does return a row that matches the event chosen
+                else
                 {
-                    e.printStackTrace();
+                    // gets the first name, last name and access level
+                    // the string will then be put in a file
+                    String content = "Name: " + (getAccessFirstName(checkemail, ChosenEvent) + " " + getAccessLastName(checkemail, ChosenEvent) +
+                            "          Access Level: " + getAccessLevel(checkemail, ChosenEvent));
+                    File file;
+                    FileOutputStream outputStream;
+                    try
+                    {
+                        // creating file
+                        file = new File(Environment.getExternalStorageDirectory(), "EventslyAccess.txt");
+
+                        outputStream = new FileOutputStream(file);
+                        outputStream.write(content.getBytes());
+                        outputStream.close();
+                    }
+                    catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    // NFC and android beam both are enabled
+
+                    // file to be transferred
+                    String fileName = "EventslyAccess.txt";
+
+                    // retrieve the path to the user's directory
+                    File fileDirectory = Environment.getExternalStorageDirectory();
+
+                    // create a new file using the specified directory and name
+                    File fileToTransfer = new File(fileDirectory, fileName);
+                    // sets file to be readable and writable
+                    fileToTransfer.setReadable(true, true);
+                    fileToTransfer.setWritable(true, true);
+                    // closing database
+                    EventslyDB.close();
+                    // push file using NFC
+                    nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
+
                 }
-                // NFC and Android Beam both are enabled
-
-                // File to be transferred
-                // For the sake of this tutorial I've placed an image
-                // named 'wallpaper.png' in the 'Pictures' directory
-                String fileName = "EventslyAccess.txt";
-
-                // Retrieve the path to the user's public pictures directory
-                File fileDirectory = Environment.getExternalStorageDirectory();
-
-                // Create a new file using the specified directory and name
-                File fileToTransfer = new File(fileDirectory, fileName);
-                fileToTransfer.setReadable(true, true);
-                fileToTransfer.setWritable(true, true);
-                EventslyDB.close();
-
-                nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
-
             }
         }
     }
 
+    // returns the first name that is on the same row as the email and eventname that is passed in
     public String getAccessFirstName(String email, String checkevent)
     {
         Cursor c = EventslyDB.rawQuery("SELECT * FROM eventguestlist WHERE email =? and eventname =?", new String[]{email, checkevent});
@@ -245,6 +244,7 @@ public class HostCheckIn extends Activity
         return c.getString(c.getColumnIndex("firstname"));
     }
 
+    // returns the last name that is on the same row as the email and eventname that is passed in
     public String getAccessLastName(String email, String checkevent)
     {
         Cursor c = EventslyDB.rawQuery("SELECT * FROM eventguestlist WHERE email =? and eventname =?", new String[]{email, checkevent});
@@ -252,6 +252,7 @@ public class HostCheckIn extends Activity
         return c.getString(c.getColumnIndex("lastname"));
     }
 
+    // returns the access level that is on the same row as the email and eventname that is passed in
     public String getAccessLevel(String email, String checkevent)
     {
         Cursor c = EventslyDB.rawQuery("SELECT * FROM eventguestlist WHERE email =? and eventname =?", new String[]{email, checkevent});
@@ -259,18 +260,20 @@ public class HostCheckIn extends Activity
         return c.getString(c.getColumnIndex("accesslevel"));
     }
 
-    public int getFileCount(String email, String checkevent)
+    // returns a count of rows to see if the email ane event that is passed in exists
+    public int getEmailAndEventVerified(String email, String checkevent)
     {
         Cursor c = EventslyDB.rawQuery("SELECT * FROM eventguestlist WHERE email =? and eventname =?", new String[]{email, checkevent});
         c.moveToFirst();
         return c.getCount();
     }
 
+    // when the back button is pressed on the phone goes to the previous check-in screen
     public void onBackPressed()
     {
         Intent getPreviousScreenIntent = new Intent(this, HostSelectEventCheckIn.class);
         startActivity(getPreviousScreenIntent);
-
+        // closing database
         EventslyDB.close();
 
         finish();

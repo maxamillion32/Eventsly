@@ -11,9 +11,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,85 +32,67 @@ public class AttendeeCheckIn extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendee_check_in);
-
-        PackageManager pm = this.getPackageManager();
-        // Check whether NFC is available on device
-
-
+        // file name
         String rFileEmail = "EmailAddress.txt";
-
+        // file directory
         File sdcardEmail = Environment.getExternalStorageDirectory();
-
-        //Get the text file
+        // get the text file
         File EmailAddress = new File(sdcardEmail, rFileEmail);
-
-        if(EmailAddress.exists())
+        // if file exists delete it
+        if (EmailAddress.exists())
         {
             EmailAddress.delete();
         }
 
-        try
-        {
-            EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
+        EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
 
-            File database = getApplicationContext().getDatabasePath("eventslyDB.db");
-
-            if (!database.exists())
-            {
-                Toast.makeText(this, "Database Created or Exists", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Toast.makeText(this, "Database doesn't exist", Toast.LENGTH_SHORT).show();
-            }
-        }
-        catch (Exception e)
-        {
-            Log.e("eventslyDB ERROR", "Error Creating Database");
-        }
-
+        PackageManager pm = this.getPackageManager();
+        // check whether NFC is available on device
         if (!pm.hasSystemFeature(PackageManager.FEATURE_NFC))
         {
             // NFC is not available on the device.
             Toast.makeText(this, "The device does not has NFC hardware.", Toast.LENGTH_SHORT).show();
         }
-        // Check whether device is running Android 4.1 or higher
-        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
-        {
-            // Android Beam feature is not supported.
-            Toast.makeText(this, "Android Beam is not supported.", Toast.LENGTH_SHORT).show();
-        }
+        // check whether device is running Android 4.1 or higher
         else
         {
-            // NFC and Android Beam file transfer is supported.
-            Toast.makeText(this, "Android Beam is supported on your device.", Toast.LENGTH_SHORT).show();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+            {
+                // android beam feature is not supported.
+                Toast.makeText(this, "Android Beam is not supported.", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                // NFC and android beam file transfer is supported.
+                Toast.makeText(this, "Android Beam is supported on your device.", Toast.LENGTH_SHORT).show();
+            }
         }
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        // Check whether NFC is enabled on device
+        // check whether NFC is enabled on device
         if (!nfcAdapter.isEnabled())
         {
-            // NFC is disabled, show the settings UI
-            // to enable NFC
+            // NFC is disabled, show the settings UI to enable it
             Toast.makeText(this, "Please enable NFC.", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Settings.ACTION_NFC_SETTINGS));
         }
-        // Check whether Android Beam feature is enabled on device
-        else if (!nfcAdapter.isNdefPushEnabled())
-        {
-            // Android Beam is disabled, show the settings UI
-            // to enable Android Beam
-            Toast.makeText(this, "Please enable Android Beam.", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(Settings.ACTION_NFCSHARING_SETTINGS));
-        }
+        // check whether Android Beam feature is enabled on device
         else
         {
-
+            if (!nfcAdapter.isNdefPushEnabled())
+            {
+                // android beam is disabled, show the settings UI to enable it
+                Toast.makeText(this, "Please enable Android Beam.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Settings.ACTION_NFCSHARING_SETTINGS));
+            }
+            else
+            {
+                // gets the email and then puts it in a file as a string
                 String content = (getEmail(stringID));
                 File file;
                 FileOutputStream outputStream;
                 try
                 {
-
+                    // create file
                     file = new File(Environment.getExternalStorageDirectory(), "EmailAddress.txt");
 
                     outputStream = new FileOutputStream(file);
@@ -121,27 +103,27 @@ public class AttendeeCheckIn extends Activity
                 {
                     e.printStackTrace();
                 }
-                // NFC and Android Beam both are enabled
-
-                // File to be transferred
-                // For the sake of this tutorial I've placed an image
-                // named 'wallpaper.png' in the 'Pictures' directory
+                // NFC and android beam are enabled
+                // file to be transferred
                 String fileName = "EmailAddress.txt";
 
-                // Retrieve the path to the user's public pictures directory
+                // retrieve the path to the user's directory
                 File fileDirectory = Environment.getExternalStorageDirectory();
 
-                // Create a new file using the specified directory and name
+                // create a new file using the specified directory and name
                 File fileToTransfer = new File(fileDirectory, fileName);
+                // set file to be readable and writable
                 fileToTransfer.setReadable(true, true);
                 fileToTransfer.setWritable(true, true);
+                // closing database
                 EventslyDB.close();
-
+                // push file using NFC
                 nfcAdapter.setBeamPushUris(new Uri[]{Uri.fromFile(fileToTransfer)}, this);
-
             }
         }
+    }
 
+    // returns the email that is on the same row as the ID that is passed in
     public String getEmail(String id)
     {
         Cursor c = EventslyDB.rawQuery("SELECT email FROM currentuser WHERE rowid =?", new String[]{id});
@@ -149,21 +131,23 @@ public class AttendeeCheckIn extends Activity
         return c.getString(c.getColumnIndex("email"));
     }
 
+    // goes to attendee badge screen
     public void onSeeCredentialsClick(View view)
     {
         Intent getBadgeScreenIntent = new Intent(this, AttendeeBadge.class);
         startActivity(getBadgeScreenIntent);
-
+        // closing database
         EventslyDB.close();
 
         finish();
     }
 
+    // when back button is pressed on the phone goes to attendee menu screen
     public void onBackPressed()
     {
         Intent getPreviousScreenIntent = new Intent(this, Attendee.class);
         startActivity(getPreviousScreenIntent);
-
+        // closing database
         EventslyDB.close();
 
         finish();

@@ -16,6 +16,7 @@
       <w>lastname</w>
       <w>receivedfile</w>
       <w>rowid</w>
+      <w>signup</w>
     </words>
   </dictionary>
 </component>
