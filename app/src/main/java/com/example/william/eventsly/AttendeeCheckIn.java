@@ -43,7 +43,7 @@ public class AttendeeCheckIn extends Activity
         {
             EmailAddress.delete();
         }
-
+        // opening database
         EventslyDB = this.openOrCreateDatabase("eventslyDB", MODE_PRIVATE, null);
 
         PackageManager pm = this.getPackageManager();
