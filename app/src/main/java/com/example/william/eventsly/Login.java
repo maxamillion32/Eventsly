@@ -49,16 +49,6 @@ public class Login extends Activity
 
         finish();
     }
-    // when clicked this goes to title screen
-    public void onCancelClick(View view)
-    {
-        Intent getTitleScreenIntent = new Intent(this, Title.class);
-        startActivity(getTitleScreenIntent);
-        // closing database
-        EventslyDB.close();
-
-        finish();
-    }
     // when clicked this checks to see if login credentials are valid, if so goes to role screen
     public void onSignInClick(View view)
     {
@@ -97,15 +87,14 @@ public class Login extends Activity
         }
 
     }
-    // when back button on phone is pressed goes to title screen
+    // when back button on phone is pressed the app will close
     public void onBackPressed()
     {
-        Intent getPreviousScreenIntent = new Intent(this, Title.class);
-        startActivity(getPreviousScreenIntent);
         // closing database
         EventslyDB.close();
 
         finish();
+        System.exit(0);
     }
     // passes in email and password from editText boxes and checks to see if user exists in database
     public int GetAccountChecked(String email, String password)
